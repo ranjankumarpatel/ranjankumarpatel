@@ -4,7 +4,7 @@
 
 15 years deep in leadership, talent, and culture assessment. The last few of those spent turning that domain into AI-native products — not bolting an LLM onto a legacy workflow, but reworking how assessment itself happens when models can read, reason, and respond.
 
-I lead a 20-person engineering team across Spring Boot backends, cloud infrastructure, AI assessment pipelines, QA automation, and platform security. My role is systems architect and transformation driver — I work across the stack, but the real job is making sure what we ship actually changes how enterprise talent decisions get made.
+I lead a engineering team across Spring Boot backends, cloud infrastructure, AI assessment pipelines, QA automation, and platform security. My role is systems architect and transformation driver — I work across the stack, but the real job is making sure what we ship actually changes how enterprise talent decisions get made.
 
 ---
 
