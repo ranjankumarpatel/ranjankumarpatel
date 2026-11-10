@@ -180,6 +180,3 @@ export const building = [
     text: "Setting up onboarding, delivery and QA so the team can take a project from start to finish on its own.",
   },
 ];
-
-export const writing =
-  "I write on LinkedIn about AI and talent. Mostly these are notes from things I have actually built and deployed.";

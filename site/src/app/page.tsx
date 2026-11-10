@@ -10,7 +10,7 @@ import {
 } from "@/components/Motion";
 import SkillField from "@/components/SkillField";
 import Skills from "@/components/Skills";
-import { building, leading, profile, writing } from "@/content";
+import { building, leading, profile } from "@/content";
 
 const nav = [
   { href: "#about", label: "About" },
@@ -138,8 +138,8 @@ export default function Home() {
         >
           <div className="mx-auto max-w-6xl px-6 py-20 md:px-10">
             <RevealText
-              text={writing}
-              className="max-w-3xl font-display text-3xl font-semibold leading-tight tracking-tight md:text-4xl"
+              text="Where to find me"
+              className={heading}
             />
             <FadeUp delay={0.3}>
               <ul className="mt-10 flex flex-wrap gap-x-10 gap-y-4 text-lg">
