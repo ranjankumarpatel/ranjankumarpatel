@@ -1,11 +1,7 @@
 <!-- Header -->
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F2027,50:203A43,100:2C5364&height=180&section=header&text=Ranjan%20Kumar%20Patel&fontSize=42&fontColor=ffffff&fontAlignY=35&desc=VP%2C%20Technology%20%40%20Think%20Talent&descAlignY=55&descSize=18" alt="Ranjan Kumar Patel" />
-</p>
-
-<p align="center">
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2C9AB7&center=true&vCenter=true&width=620&lines=I+lead+the+development%2C+DevOps+and+QA+teams;I+still+build+full+stack+solutions+myself;15%2B+years+in+talent+assessment+technology" alt="Typing SVG" />
+  <a href="https://ranjankumarpatel.github.io/ranjankumarpatel/">
+    <img src="./assets/profile-banner.gif" width="100%" alt="Ranjan Kumar Patel. VP, Technology at Think Talent. I lead the development, DevOps and QA teams and still build full stack solutions myself." />
   </a>
 </p>
 
