@@ -20,7 +20,7 @@
 
 I have been building technology for leadership and talent assessment for more than 15 years. Today I run technology at Think Talent as VP. The development team lead, the DevOps manager and the QA team lead report to me.
 
-I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.
+I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build. I am actively involved in it every day, from running models on my own machine to fine-tuning them for a specific job.
 
 I am not looking for a job. This profile is here so that anyone who looks me up can see what I know and what I am working on.
 
@@ -30,7 +30,8 @@ I am not looking for a job. This profile is here so that anyone who looks me up 
 role:        VP, Technology @ Think Talent
 reports:     [Development team lead, DevOps manager, QA team lead]
 experience:  15+ years in talent & assessment tech
-focus:       [technology leadership, full stack solutions, AI, AWS, DevOps, cybersecurity]
+focus:       [technology leadership, full stack solutions, AI, cloud, DevOps, cybersecurity]
+clouds:      [AWS, Azure, Google Cloud]
 industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]
 writing:     AI and talent, on LinkedIn
 ```
@@ -71,6 +72,20 @@ writing:     AI and talent, on LinkedIn
   <img src="https://img.shields.io/badge/MCP%20Servers-333333?style=flat-square" alt="MCP servers" />
 </p>
 
+**AI models and tools**
+
+I work with AI every day, hands-on. I run models locally, fine-tune them, and use the hosted ones. I pick whichever fits the job.
+
+<p>
+  <img src="https://img.shields.io/badge/Claude-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="Claude" />
+  <img src="https://img.shields.io/badge/Codex-412991?style=flat-square&logo=openai&logoColor=white" alt="Codex" />
+  <img src="https://img.shields.io/badge/Grok-000000?style=flat-square&logo=x&logoColor=white" alt="Grok" />
+  <img src="https://img.shields.io/badge/Google%20AI%20Studio-4285F4?style=flat-square&logo=google&logoColor=white" alt="Google AI Studio" />
+  <img src="https://img.shields.io/badge/Ollama-222222?style=flat-square&logo=ollama&logoColor=white" alt="Ollama" />
+  <img src="https://img.shields.io/badge/LM%20Studio-4B3FBF?style=flat-square" alt="LM Studio" />
+  <img src="https://img.shields.io/badge/Unsloth-2E8B57?style=flat-square" alt="Unsloth" />
+</p>
+
 **Machine learning**
 
 <p>
@@ -104,12 +119,16 @@ writing:     AI and talent, on LinkedIn
   <img src="https://img.shields.io/badge/Custom%20npm%20Libraries-CB3837?style=flat-square&logo=npm&logoColor=white" alt="Custom npm libraries" />
 </p>
 
-**AWS and DevOps**
+**Cloud and DevOps**
+
+AWS is my main cloud. I also use Azure and Google Cloud for different use cases.
 
 <p>
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS" />
   <img src="https://img.shields.io/badge/CloudFront-8C4FFF?style=flat-square" alt="AWS CloudFront" />
   <img src="https://img.shields.io/badge/Bedrock-01A88D?style=flat-square" alt="AWS Bedrock" />
+  <img src="https://img.shields.io/badge/Azure-0078D4?style=flat-square" alt="Azure" />
+  <img src="https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white" alt="Google Cloud" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" />
