@@ -6,7 +6,7 @@ export const profile = {
     "I am VP, Technology at Think Talent. I lead the development, DevOps and QA teams, and I still build full stack solutions myself.",
   about: [
     "I have been building technology for leadership and talent assessment for more than 15 years. Today I run technology at Think Talent as VP. The development team lead, the DevOps manager and the QA team lead report to me.",
-    "I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.",
+    "I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build. I am actively involved in it every day, from running models on my own machine to fine-tuning them for a specific job.",
     "I am not looking for a job. I made this page so that anyone who looks me up can see what I know and what I am working on.",
   ],
   facts: [
@@ -69,6 +69,20 @@ export const skillGroups: SkillGroup[] = [
     ],
   },
   {
+    id: "aitools",
+    name: "AI models and tools",
+    note: "I work with AI every day, hands-on. I run models locally with Ollama and LM Studio, fine-tune them with Unsloth, and use Claude, Codex, Grok and Google AI Studio. I pick whichever fits the job.",
+    items: [
+      "Claude",
+      "Codex",
+      "Grok",
+      "Google AI Studio",
+      "Ollama",
+      "LM Studio",
+      "Unsloth",
+    ],
+  },
+  {
     id: "ml",
     name: "Machine learning",
     note: "I build and use custom models for different solutions. A ready-made API is not always the right answer.",
@@ -103,9 +117,12 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     id: "aws",
-    name: "AWS",
-    note: "Our platforms run on AWS. I have dealt with all kinds of AWS scenarios over the years.",
+    name: "Cloud",
+    note: "AWS is my main cloud and I have dealt with all kinds of AWS scenarios over the years. I also use Azure and Google Cloud for different use cases.",
     items: [
+      "AWS",
+      "Azure",
+      "Google Cloud",
       "EC2",
       "S3",
       "RDS",
