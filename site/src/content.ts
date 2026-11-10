@@ -71,8 +71,9 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "ml",
     name: "Machine learning",
-    note: "I work with the models directly too. It helps to know what is happening under the API.",
+    note: "I build and use custom models for different solutions. A ready-made API is not always the right answer.",
     items: [
+      "Custom-built models",
       "PyTorch",
       "Hugging Face Transformers",
       "scikit-learn",
@@ -82,12 +83,14 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "backend",
     name: "Backend",
-    note: "Java and Spring Boot have been my base for many years. For AI work I mostly use Python and FastAPI.",
+    note: "Java and Spring Boot have been my base for many years. For AI work I mostly use Python and FastAPI. When the same code is needed in many places, I build it as a library.",
     items: [
       "Java",
       "Spring Boot",
+      "Custom Java libraries",
       "Python",
       "FastAPI",
+      "Custom Python libraries",
       "REST APIs",
       "Data pipelines",
     ],
@@ -96,13 +99,23 @@ export const skillGroups: SkillGroup[] = [
     id: "frontend",
     name: "Frontend",
     note: "I build the screens as well. This site is made with Next.js.",
-    items: ["React", "Next.js", "Vite", "TypeScript"],
+    items: ["React", "Next.js", "Vite", "TypeScript", "Custom npm libraries"],
   },
   {
     id: "aws",
     name: "AWS",
     note: "Our platforms run on AWS. I have dealt with all kinds of AWS scenarios over the years.",
-    items: ["EC2", "S3", "RDS", "Lambda", "IAM", "VPC", "CloudWatch"],
+    items: [
+      "EC2",
+      "S3",
+      "RDS",
+      "Lambda",
+      "CloudFront",
+      "Bedrock",
+      "IAM",
+      "VPC",
+      "CloudWatch",
+    ],
   },
   {
     id: "devops",
