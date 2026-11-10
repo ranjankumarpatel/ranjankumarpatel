@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2C9AB7&center=true&vCenter=true&width=620&lines=I+build+AI+solutions;AI%2C+ML%2C+backend%2C+frontend%2C+cloud+and+security;15%2B+years+in+talent+assessment+technology" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2C9AB7&center=true&vCenter=true&width=620&lines=I+build+full+stack+solutions;Frontend%2C+backend%2C+AI%2C+ML%2C+cloud+and+security;15%2B+years+in+talent+assessment+technology" alt="Typing SVG" />
   </a>
 </p>
 
@@ -20,9 +20,9 @@
 
 ## 👋 About Me
 
-**I head technology at [Think Talent](http://thinktalent.co). I build AI solutions, and I also take care of the cloud, DevOps and security work that keeps them running.**
+**I head technology at [Think Talent](http://thinktalent.co). I build full stack solutions, from the frontend and backend to the AI, cloud, DevOps and security behind them.**
 
-I have been building technology for leadership and talent assessment for more than 15 years. For the last few years most of my work has been on AI. It started with small experiments, and today AI is at the centre of the products we build.
+I have been building technology for leadership and talent assessment for more than 15 years. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.
 
 I still like to stay hands-on. I design the system, write code where it is needed, set up the pipelines and review security before anything goes live. My team handles Spring Boot backends, AWS infrastructure, AI pipelines, test automation and platform security, and I work across all of it.
 
@@ -33,7 +33,7 @@ I am not looking for a job. This profile is here so that anyone who looks me up 
 ```yaml
 role:        VP, Technology @ Think Talent
 experience:  15+ years in talent & assessment tech
-focus:       [AI solutions, machine learning, backend, frontend, AWS, DevOps, cybersecurity]
+focus:       [full stack solutions, AI, machine learning, AWS, DevOps, cybersecurity]
 industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]
 writing:     AI and talent, on LinkedIn
 ```
