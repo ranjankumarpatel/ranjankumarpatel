@@ -5,11 +5,12 @@
 
 <p align="center">
   <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2C9AB7&center=true&vCenter=true&width=620&lines=Rebuilding+talent+assessment+for+the+AI+era;AI-native+products%2C+not+bolted-on+LLMs;Systems+architect+%C2%B7+Transformation+driver" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=20&pause=1200&color=2C9AB7&center=true&vCenter=true&width=620&lines=I+build+AI+solutions;AI%2C+ML%2C+backend%2C+frontend%2C+cloud+and+security;15%2B+years+in+talent+assessment+technology" alt="Typing SVG" />
   </a>
 </p>
 
 <p align="center">
+  <a href="https://ranjankumarpatel.github.io/ranjankumarpatel/"><img src="https://img.shields.io/badge/My%20Website-Visit-3FB8D1?style=for-the-badge&logo=githubpages&logoColor=white" alt="My website" /></a>
   <a href="https://www.linkedin.com/in/ranjankumarpatel"><img src="https://img.shields.io/badge/LinkedIn-Follow-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
   <a href="http://thinktalent.co"><img src="https://img.shields.io/badge/Think%20Talent-Website-2C5364?style=for-the-badge&logo=googlechrome&logoColor=white" alt="Think Talent" /></a>
   <img src="https://komarev.com/ghpvc/?username=ranjankumarpatel&style=for-the-badge&color=2C9AB7&label=Profile+Views" alt="Profile views" />
@@ -19,18 +20,22 @@
 
 ## 👋 About Me
 
-**VP, Technology at [Think Talent](http://thinktalent.co) — rebuilding talent assessment for the AI era.**
+**I head technology at [Think Talent](http://thinktalent.co). I build AI solutions, and I also take care of the cloud, DevOps and security work that keeps them running.**
 
-15 years deep in leadership, talent, and culture assessment. The last few spent turning that domain into **AI-native products** — not bolting an LLM onto a legacy workflow, but reworking how assessment itself happens when models can read, reason, and respond.
+I have been building technology for leadership and talent assessment for more than 15 years. For the last few years most of my work has been on AI. It started with small experiments, and today AI is at the centre of the products we build.
 
-I lead an engineering team across Spring Boot backends, cloud infrastructure, AI assessment pipelines, QA automation, and platform security. My role is **systems architect and transformation driver** — I work across the stack, but the real job is making sure what we ship actually changes how enterprise talent decisions get made.
+I still like to stay hands-on. I design the system, write code where it is needed, set up the pipelines and review security before anything goes live. My team handles Spring Boot backends, AWS infrastructure, AI pipelines, test automation and platform security, and I work across all of it.
+
+I am not looking for a job. This profile is here so that anyone who looks me up can see what I know and what I am working on.
+
+🌐 **See the full picture on my website: [ranjankumarpatel.github.io/ranjankumarpatel](https://ranjankumarpatel.github.io/ranjankumarpatel/)**
 
 ```yaml
 role:        VP, Technology @ Think Talent
 experience:  15+ years in talent & assessment tech
-focus:       [AI-native assessment, LLM orchestration, enterprise platforms]
+focus:       [AI solutions, machine learning, backend, frontend, AWS, DevOps, cybersecurity]
 industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]
-writing:     AI × Talent on LinkedIn
+writing:     AI and talent, on LinkedIn
 ```
 
 ---
@@ -39,30 +44,78 @@ writing:     AI × Talent on LinkedIn
 
 | | Initiative | Description |
 |---|---|---|
-| 🧠 | **AI-native assessment** | Rethinking core Think Talent solutions from the ground up around what models can now do |
-| 🏢 | **AI transformation for enterprise talent** | Packaging 15 years of assessment methodology and platform capability into deployment-ready offerings |
-| ⚙️ | **Delivery systems** | Onboarding, execution, and QA that let the team run end-to-end without me in the loop |
+| 🧠 | **AI in assessment** | Rebuilding our core assessment products around what AI models can do today. Adding a chatbot on top of the old flow was never going to be enough. |
+| 🏢 | **AI for enterprise talent teams** | Taking 15 years of assessment methods and turning them into solutions a large company can start using quickly. |
+| ⚙️ | **A team that runs without me** | Setting up onboarding, delivery and QA so the team can take a project from start to finish on its own. |
 
 ---
 
-## 🛠️ Tech Stack
+## 🛠️ What I Work With
+
+**AI solutions**
+
+<p>
+  <img src="https://img.shields.io/badge/LLM%20Orchestration-412991?style=flat-square&logo=openai&logoColor=white" alt="LLM Orchestration" />
+  <img src="https://img.shields.io/badge/Agents%20%26%20Tool%20Use-5A4FCF?style=flat-square" alt="Agents and tool use" />
+  <img src="https://img.shields.io/badge/RAG-0E7C86?style=flat-square" alt="RAG" />
+  <img src="https://img.shields.io/badge/Prompt%20Engineering-6B4E9B?style=flat-square" alt="Prompt engineering" />
+  <img src="https://img.shields.io/badge/LLM%20Evaluation-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="LLM Evaluation" />
+  <img src="https://img.shields.io/badge/MCP%20Servers-333333?style=flat-square" alt="MCP servers" />
+</p>
+
+**Machine learning**
+
+<p>
+  <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" />
+  <img src="https://img.shields.io/badge/Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face Transformers" />
+  <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn" />
+  <img src="https://img.shields.io/badge/NumPy-013243?style=flat-square&logo=numpy&logoColor=white" alt="NumPy" />
+  <img src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" alt="pandas" />
+</p>
+
+**Backend**
 
 <p>
   <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java" />
   <img src="https://img.shields.io/badge/Spring%20Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white" alt="Spring Boot" />
-  <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS" />
-  <img src="https://img.shields.io/badge/LLM%20Orchestration-412991?style=flat-square&logo=openai&logoColor=white" alt="LLM Orchestration" />
-  <img src="https://img.shields.io/badge/LLM%20Evaluation-D97757?style=flat-square&logo=anthropic&logoColor=white" alt="LLM Evaluation" />
-  <img src="https://img.shields.io/badge/QA%20Automation-2EAD33?style=flat-square&logo=playwright&logoColor=white" alt="QA Automation" />
-  <img src="https://img.shields.io/badge/AppSec-CC0000?style=flat-square&logo=owasp&logoColor=white" alt="Application Security" />
+  <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Data%20Pipelines-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" alt="Data Pipelines" />
+</p>
+
+**Frontend**
+
+<p>
+  <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
+  <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
+
+**AWS and DevOps**
+
+<p>
+  <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS" />
+  <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
+  <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
+  <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" />
+</p>
+
+**Cybersecurity and testing**
+
+<p>
+  <img src="https://img.shields.io/badge/AppSec-CC0000?style=flat-square&logo=owasp&logoColor=white" alt="Application Security" />
+  <img src="https://img.shields.io/badge/Secure%20Code%20Review-8B0000?style=flat-square" alt="Secure code review" />
+  <img src="https://img.shields.io/badge/VAPT-A52A2A?style=flat-square" alt="VAPT" />
+  <img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat-square&logo=playwright&logoColor=white" alt="Playwright" />
+  <img src="https://img.shields.io/badge/QA%20Automation-2E8B57?style=flat-square" alt="QA Automation" />
 </p>
 
 ---
 
 ## 🌍 Where the Work Lands
 
-Enterprise-scale, high-stakes talent decisions across:
+Large enterprises making important talent decisions, across:
 
 `🏦 BFSI` &nbsp; `⚡ Energy` &nbsp; `🏭 Manufacturing` &nbsp; `🛍️ Global Consumer Brands`
 
@@ -70,9 +123,9 @@ Enterprise-scale, high-stakes talent decisions across:
 
 ## ✍️ Where I Write
 
-I publish on the **AI × Talent** intersection — practical, specific notes from someone actually building and deploying these systems at enterprise scale.
+I write on LinkedIn about AI and talent. Mostly these are notes from things I have actually built and deployed.
 
-👉 **[Read my posts on LinkedIn →](https://www.linkedin.com/in/ranjankumarpatel)**
+👉 **[Read my posts on LinkedIn](https://www.linkedin.com/in/ranjankumarpatel)**
 
 ---
 
