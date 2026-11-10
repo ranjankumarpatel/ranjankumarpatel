@@ -3,7 +3,7 @@
 export const profile = {
   name: "Ranjan Kumar Patel",
   intro:
-    "I am VP, Technology at Think Talent. I lead the development, DevOps and QA teams, and I still build full stack solutions myself.",
+    "I am VP, Technology at Think Talent. I lead the development, DevOps and QA teams. I love building new things, and tech is a part of my life.",
   about: [
     "I have been building technology for leadership and talent assessment for more than 15 years. Today I run technology at Think Talent as VP. The development team lead, the DevOps manager and the QA team lead report to me.",
     "I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build. I am actively involved in it every day, from running models on my own machine to fine-tuning them for a specific job.",

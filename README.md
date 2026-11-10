@@ -1,7 +1,7 @@
 <!-- Header -->
 <p align="center">
   <a href="https://ranjankumarpatel.github.io/ranjankumarpatel/">
-    <img src="./assets/profile-banner.gif" width="100%" alt="Ranjan Kumar Patel. VP, Technology at Think Talent. I lead the development, DevOps and QA teams and still build full stack solutions myself." />
+    <img src="./assets/profile-banner.gif" width="100%" alt="Ranjan Kumar Patel. VP, Technology at Think Talent. I lead the development, DevOps and QA teams. I love building new things, and tech is a part of my life." />
   </a>
 </p>
 
@@ -16,7 +16,7 @@
 
 ## 👋 About Me
 
-**I am VP, Technology at [Think Talent](http://thinktalent.co). I lead the development, DevOps and QA teams, and I still build full stack solutions myself.**
+**I am VP, Technology at [Think Talent](http://thinktalent.co). I lead the development, DevOps and QA teams. I love building new things, and tech is a part of my life.**
 
 I have been building technology for leadership and talent assessment for more than 15 years. Today I run technology at Think Talent as VP. The development team lead, the DevOps manager and the QA team lead report to me.
 
