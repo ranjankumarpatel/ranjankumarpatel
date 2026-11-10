@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1280, height=420" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js"></script>
+    <style>
+      :root {
+        --ground: #0b1d24;
+        --ink: #e8f1f2;
+        --mute: #93abb2;
+        --teal: #3fb8d1;
+        --amber: #f0b45e;
+        --font-display: "Outfit", sans-serif;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        width: 1280px;
+        height: 420px;
+        overflow: hidden;
+        background: var(--ground);
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        font-family: var(--font-display);
+        color: var(--ink);
+      }
+      #stage,
+      #line-lead,
+      #line-build,
+      #line-stack {
+        position: absolute;
+        inset: 0;
+      }
+      #sky {
+        position: absolute;
+        inset: 0;
+        width: 1280px;
+        height: 420px;
+      }
+      #name {
+        position: absolute;
+        left: 72px;
+        top: 100px;
+        font-size: 74px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.035em;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      #name span {
+        display: inline-block;
+        white-space: pre;
+      }
+      #role {
+        position: absolute;
+        left: 76px;
+        top: 204px;
+        font-size: 27px;
+        font-weight: 400;
+        color: var(--mute);
+      }
+      .line {
+        position: absolute;
+        left: 76px;
+        top: 268px;
+        font-size: 30px;
+        font-weight: 700;
+        white-space: nowrap;
+      }
+      .line.amber {
+        color: var(--amber);
+      }
+      .line.teal {
+        color: var(--teal);
+      }
+      #fade {
+        position: absolute;
+        inset: 0;
+        background: var(--ground);
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      id="root"
+      data-composition-id="main"
+      data-start="0"
+      data-duration="10.6"
+      data-width="1280"
+      data-height="420"
+    >
+      <div id="stage" class="clip" data-start="0" data-duration="10.6" data-track-index="0">
+        <svg id="sky" viewBox="0 0 1280 420" data-layout-ignore>
+          <g id="constellation">
+            <g id="edges" fill="none" stroke-linecap="round"></g>
+            <g id="dust"></g>
+            <g id="nodes"></g>
+            <g id="signals"></g>
+          </g>
+        </svg>
+        <h1 id="name" aria-label="Ranjan Kumar Patel"></h1>
+        <p id="role">VP, Technology at Think Talent</p>
+      </div>
+
+      <div id="line-lead" class="clip" data-start="2" data-duration="2.9" data-track-index="1">
+        <p id="line-lead-text" class="line teal">I lead the development, DevOps and QA teams</p>
+      </div>
+      <div id="line-build" class="clip" data-start="4.9" data-duration="2.7" data-track-index="1">
+        <p id="line-build-text" class="line amber">I still build full stack solutions myself</p>
+      </div>
+      <div id="line-stack" class="clip" data-start="7.6" data-duration="3" data-track-index="1">
+        <p id="line-stack-text" class="line teal">AI, machine learning, AWS and security</p>
+      </div>
+
+      <div id="fade" data-layout-ignore></div>
+    </div>
+    <script>
+      // Seeded generator: the same picture on every render.
+      function seeded(seed) {
+        let a = seed;
+        return function () {
+          a = (a + 0x6d2b79f5) | 0;
+          let t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+      const rand = seeded(15);
+      const NS = "http://www.w3.org/2000/svg";
+      const make = (tag, attrs, parent) => {
+        const el = document.createElementNS(NS, tag);
+        for (const k in attrs) el.setAttribute(k, attrs[k]);
+        parent.appendChild(el);
+        return el;
+      };
+
+      // One cluster per skill group on the site. The first one (AI) is amber.
+      const sizes = [9, 5, 8, 5, 9, 5, 5, 3];
+      const cx = 1010;
+      const cy = 210;
+      const centers = sizes.map((_, i) => {
+        const a = (i / sizes.length) * Math.PI * 2 - Math.PI / 2;
+        return { x: cx + Math.cos(a) * 205, y: cy + Math.sin(a) * 128 };
+      });
+
+      const edges = document.getElementById("edges");
+      const nodesG = document.getElementById("nodes");
+      const dustG = document.getElementById("dust");
+      const signalsG = document.getElementById("signals");
+      const edgeEls = [];
+      const nodeEls = [];
+
+      for (let k = 0; k < 150; k++) {
+        make(
+          "circle",
+          {
+            cx: (560 + rand() * 720).toFixed(1),
+            cy: (rand() * 420).toFixed(1),
+            r: (0.6 + rand() * 1.1).toFixed(2),
+            fill: "#b9e3ec",
+            opacity: (0.15 + rand() * 0.4).toFixed(2),
+          },
+          dustG,
+        );
+      }
+
+      centers.forEach((c, i) => {
+        const n = centers[(i + 1) % centers.length];
+        edgeEls.push(
+          make("line", { x1: c.x, y1: c.y, x2: n.x, y2: n.y, stroke: "#b9e3ec", "stroke-width": 1, opacity: 0.28 }, edges),
+        );
+      });
+
+      sizes.forEach((count, i) => {
+        const color = i === 0 ? "#f0b45e" : "#3fb8d1";
+        const pts = [];
+        for (let k = 0; k < count; k++) {
+          const a = rand() * Math.PI * 2;
+          const d = 14 + rand() * 40;
+          pts.push({ x: centers[i].x + Math.cos(a) * d, y: centers[i].y + Math.sin(a) * d * 0.8 });
+        }
+        pts.forEach((p, a) => {
+          const near = pts
+            .map((q, b) => ({ b, d: a === b ? Infinity : Math.hypot(p.x - q.x, p.y - q.y) }))
+            .sort((x, y) => x.d - y.d)
+            .slice(0, 2);
+          near.forEach(({ b, d }) => {
+            if (!isFinite(d)) return;
+            edgeEls.push(
+              make("line", { x1: p.x, y1: p.y, x2: pts[b].x, y2: pts[b].y, stroke: color, "stroke-width": 1.2, opacity: 0.55 }, edges),
+            );
+          });
+        });
+        pts.forEach((p) => {
+          const r = 3 + rand() * 2.6;
+          const el = make("circle", { cx: p.x, cy: p.y, r: 0, fill: color }, nodesG);
+          nodeEls.push({ el, r, lead: i === 0 });
+        });
+      });
+
+      const signalEls = [];
+      for (let k = 0; k < 6; k++) {
+        signalEls.push(make("circle", { cx: centers[0].x, cy: centers[0].y, r: 3.2, fill: k % 2 ? "#e8f1f2" : "#f0b45e", opacity: 0 }, signalsG));
+      }
+
+      const nameEl = document.getElementById("name");
+      [..."Ranjan Kumar Patel"].forEach((ch) => {
+        const s = document.createElement("span");
+        s.textContent = ch;
+        nameEl.appendChild(s);
+      });
+
+      const tl = gsap.timeline({ paused: true });
+
+      // The map draws itself.
+      edgeEls.forEach((el, i) => {
+        const len = Math.hypot(el.x2.baseVal.value - el.x1.baseVal.value, el.y2.baseVal.value - el.y1.baseVal.value);
+        el.setAttribute("stroke-dasharray", len);
+        tl.fromTo(el, { strokeDashoffset: len }, { strokeDashoffset: 0, duration: 0.9, ease: "power2.out" }, 0.15 + i * 0.016);
+      });
+      nodeEls.forEach(({ el, r }, i) => {
+        tl.fromTo(el, { attr: { r: 0 } }, { attr: { r }, duration: 0.5, ease: "back.out(2.4)" }, 0.3 + i * 0.022);
+      });
+      // The AI cluster pulses once the map is up.
+      nodeEls
+        .filter((n) => n.lead)
+        .forEach(({ el, r }, i) => {
+          tl.to(el, { attr: { r: r * 1.7 }, duration: 0.45, ease: "sine.inOut", yoyo: true, repeat: 5 }, 2.2 + i * 0.07);
+        });
+      // Signals travel round the ring from one group to the next.
+      signalEls.forEach((el, k) => {
+        const start = 1.3 + k * 0.28;
+        tl.fromTo(el, { opacity: 0 }, { opacity: 0.95, duration: 0.2 }, start);
+        for (let hop = 0; hop < 5; hop++) {
+          const a = centers[(k + hop) % centers.length];
+          const b = centers[(k + hop + 1) % centers.length];
+          tl.fromTo(
+            el,
+            { attr: { cx: a.x, cy: a.y } },
+            { attr: { cx: b.x, cy: b.y }, duration: 1.45, ease: "power1.inOut", immediateRender: false },
+            start + hop * 1.45,
+          );
+        }
+      });
+      tl.fromTo(
+        "#constellation",
+        { rotation: -4, scale: 0.94, svgOrigin: "1010 210" },
+        { rotation: 5, scale: 1.03, svgOrigin: "1010 210", duration: 10.6, ease: "sine.inOut" },
+        0,
+      );
+
+      // The name rises letter by letter, then the role.
+      tl.fromTo(
+        "#name span",
+        { yPercent: 115, rotation: 7 },
+        { yPercent: 0, rotation: 0, duration: 0.8, ease: "expo.out", stagger: 0.035 },
+        0.3,
+      );
+      tl.fromTo("#role", { opacity: 0, x: -16 }, { opacity: 1, x: 0, duration: 0.6, ease: "power3.out" }, 1.25);
+
+      // Three lines take turns.
+      [
+        ["#line-lead-text", 2, 2.9],
+        ["#line-build-text", 4.9, 2.7],
+        ["#line-stack-text", 7.6, 2.9],
+      ].forEach(([sel, at, hold]) => {
+        tl.fromTo(sel, { opacity: 0, y: 22 }, { opacity: 1, y: 0, duration: 0.5, ease: "power3.out" }, at);
+        tl.to(sel, { opacity: 0, y: -18, duration: 0.3, ease: "power2.in" }, at + hold - 0.34);
+      });
+
+      // Fade to the ground colour so the loop restarts cleanly.
+      tl.fromTo("#fade", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "power1.in" }, 10.16);
+
+      window.__timelines["main"] = tl;
+      tl.seek(0);
+    </script>
+  </body>
+</html>
