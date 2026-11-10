@@ -3,9 +3,9 @@
 export const profile = {
   name: "Ranjan Kumar Patel",
   intro:
-    "I head technology at Think Talent. I build AI solutions, and I also take care of the cloud, DevOps and security work that keeps them running.",
+    "I head technology at Think Talent. I build full stack solutions, from the frontend and backend to the AI, cloud, DevOps and security behind them.",
   about: [
-    "I have been building technology for leadership and talent assessment for more than 15 years. For the last few years most of my work has been on AI. It started with small experiments, and today AI is at the centre of the products we build.",
+    "I have been building technology for leadership and talent assessment for more than 15 years. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.",
     "I still like to stay hands-on. I design the system, write code where it is needed, set up the pipelines and review security before anything goes live. My team handles Spring Boot backends, AWS infrastructure, AI pipelines, test automation and platform security, and I work across all of it.",
     "I am not looking for a job. I made this page so that anyone who looks me up can see what I know and what I am working on.",
   ],
@@ -35,7 +35,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "ai",
     name: "AI solutions",
-    note: "This is where most of my time goes now. I build the full solution, from the first prompt to the evaluation that tells me if it really works.",
+    note: "A big part of my work now. I take it from the first prompt to the evaluation that tells me if it really works.",
     items: [
       "LLM orchestration",
       "Agents and tool use",
