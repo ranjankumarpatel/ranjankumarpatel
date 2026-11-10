@@ -1,4 +1,4 @@
 :HL["/ranjankumarpatel/_next/static/chunks/27i_51piucbpc.css","style"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"/_not-found","h":96,"c":"$Q2"}]]
-0:{"b":"qmYI9vD2ziDb1N13Wzg1c","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"rcaC4s8P5vBw9fiZm2W4l","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
