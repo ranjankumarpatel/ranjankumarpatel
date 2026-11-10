@@ -32,9 +32,7 @@ reports:     [Development team lead, DevOps manager, QA team lead]
 experience:  15+ years in talent & assessment tech
 focus:       [technology leadership, full stack solutions, AI, cloud, DevOps, cybersecurity]
 clouds:      [AWS, Azure, Google Cloud]
-industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]
-writing:     AI and talent, on LinkedIn
-```
+industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]```
 
 ---
 
@@ -151,14 +149,6 @@ AWS is my main cloud. I also use Azure and Google Cloud for different use cases.
 Large enterprises making important talent decisions, across:
 
 `🏦 BFSI` &nbsp; `⚡ Energy` &nbsp; `🏭 Manufacturing` &nbsp; `🛍️ Global Consumer Brands`
-
----
-
-## ✍️ Where I Write
-
-I write on LinkedIn about AI and talent. Mostly these are notes from things I have actually built and deployed.
-
-👉 **[Read my posts on LinkedIn](https://www.linkedin.com/in/ranjankumarpatel)**
 
 ---
 
