@@ -7,13 +7,19 @@ import { skillGroups } from "@/content";
 const AMBER = new THREE.Color("#f0b45e");
 const TEAL = new THREE.Color("#3fb8d1");
 const PALE = new THREE.Color("#b9e3ec");
+const RADIUS = 3.1;
+const SIGNALS = 14;
+
+/** Other components call this to bring one skill group to the front of the map. */
+export function focusSkillGroup(id: string | null) {
+  window.dispatchEvent(new CustomEvent("skill-focus", { detail: id }));
+}
 
 // Small seeded generator so the map looks the same on every visit.
 function seeded(seed: number) {
   let a = seed;
   return () => {
-    a |= 0;
-    a = (a + 0x6d2b79f5) | 0;
+    a = Math.trunc(a + 0x6d2b79f5);
     let t = Math.imul(a ^ (a >>> 15), 1 | a);
     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
@@ -33,9 +39,13 @@ function dotTexture() {
   return new THREE.CanvasTexture(c);
 }
 
+const clamp01 = (v: number) => Math.min(1, Math.max(0, v));
+
 /**
- * The hero background. Every bright point is one skill from content.ts,
- * and each cluster is one skill group.
+ * The 3D map behind the whole page. Every bright point is one skill from
+ * content.ts and each cluster is one skill group. It sits fixed behind the
+ * content, dims after the hero, and turns to face whichever skill group the
+ * visitor is reading.
  */
 export default function SkillField() {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -49,11 +59,7 @@ export default function SkillField() {
 
     let renderer: THREE.WebGLRenderer;
     try {
-      renderer = new THREE.WebGLRenderer({
-        canvas,
-        antialias: true,
-        alpha: true,
-      });
+      renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
     } catch {
       return; // No WebGL. The page still reads fine without the map.
     }
@@ -66,29 +72,28 @@ export default function SkillField() {
     const field = new THREE.Group();
     scene.add(field);
 
+    const count = skillGroups.length;
     const centers: THREE.Vector3[] = [];
     const nodePos: number[] = [];
-    const nodeCol: number[] = [];
+    const nodeBase: number[] = [];
+    const nodeGroup: number[] = [];
     const dustPos: number[] = [];
     const dustCol: number[] = [];
     const linePos: number[] = [];
-    const lineCol: number[] = [];
+    const lineBase: number[] = [];
+    const lineGroup: number[] = [];
 
     const inSphere = (radius: number) => {
-      const v = new THREE.Vector3(
-        rand() * 2 - 1,
-        rand() * 2 - 1,
-        rand() * 2 - 1,
-      );
+      const v = new THREE.Vector3(rand() * 2 - 1, rand() * 2 - 1, rand() * 2 - 1);
       return v.normalize().multiplyScalar(radius * (0.35 + 0.65 * rand()));
     };
 
     skillGroups.forEach((group, i) => {
-      const angle = (i / skillGroups.length) * Math.PI * 2;
+      const angle = (i / count) * Math.PI * 2;
       const center = new THREE.Vector3(
-        Math.cos(angle) * 3.1,
+        Math.cos(angle) * RADIUS,
         (i % 2 ? 1 : -1) * (0.7 + rand() * 0.5),
-        Math.sin(angle) * 3.1,
+        Math.sin(angle) * RADIUS,
       );
       centers.push(center);
       const color = group.id === "ai" ? AMBER : TEAL;
@@ -96,7 +101,8 @@ export default function SkillField() {
       const nodes = group.items.map(() => center.clone().add(inSphere(1.15)));
       nodes.forEach((n) => {
         nodePos.push(n.x, n.y, n.z);
-        nodeCol.push(color.r, color.g, color.b);
+        nodeBase.push(color.r, color.g, color.b);
+        nodeGroup.push(i);
       });
 
       // Join every skill to its two nearest neighbours in the same group.
@@ -106,14 +112,15 @@ export default function SkillField() {
           .sort((x, y) => x.d - y.d)
           .slice(0, 2)
           .forEach(({ b, d }) => {
-            if (!isFinite(d)) return;
+            if (!Number.isFinite(d)) return;
             const m = nodes[b];
             linePos.push(n.x, n.y, n.z, m.x, m.y, m.z);
-            lineCol.push(color.r, color.g, color.b, color.r, color.g, color.b);
+            lineBase.push(color.r, color.g, color.b, color.r, color.g, color.b);
+            lineGroup.push(i, i);
           });
       });
 
-      for (let k = 0; k < 55; k++) {
+      for (let k = 0; k < 45; k++) {
         const p = center.clone().add(inSphere(1.7));
         dustPos.push(p.x, p.y, p.z);
         dustCol.push(color.r, color.g, color.b);
@@ -122,9 +129,10 @@ export default function SkillField() {
 
     // Faint ring that ties the groups together.
     centers.forEach((c, i) => {
-      const n = centers[(i + 1) % centers.length];
+      const n = centers[(i + 1) % count];
       linePos.push(c.x, c.y, c.z, n.x, n.y, n.z);
-      lineCol.push(PALE.r, PALE.g, PALE.b, PALE.r, PALE.g, PALE.b);
+      lineBase.push(PALE.r, PALE.g, PALE.b, PALE.r, PALE.g, PALE.b);
+      lineGroup.push(-1, -1);
     });
 
     for (let k = 0; k < 260; k++) {
@@ -134,6 +142,7 @@ export default function SkillField() {
     }
 
     const sprite = dotTexture();
+    const disposables: { dispose: () => void }[] = [sprite];
     const makePoints = (pos: number[], col: number[], size: number, opacity: number) => {
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.Float32BufferAttribute(pos, 3));
@@ -147,16 +156,25 @@ export default function SkillField() {
         depthWrite: false,
         blending: THREE.AdditiveBlending,
       });
-      const pts = new THREE.Points(geo, mat);
-      field.add(pts);
-      return { geo, mat };
+      field.add(new THREE.Points(geo, mat));
+      disposables.push(geo, mat);
+      return geo;
     };
-    const nodeObj = makePoints(nodePos, nodeCol, 0.24, 1);
-    const dustObj = makePoints(dustPos, dustCol, 0.06, 0.55);
+    const nodeGeo = makePoints(nodePos, [...nodeBase], 0.24, 1);
+    makePoints(dustPos, dustCol, 0.06, 0.55);
+
+    // Signals that travel along the ring from one group to the next.
+    const signalGeo = makePoints(
+      new Array(SIGNALS * 3).fill(0),
+      Array.from({ length: SIGNALS }, (_, k) => (k % 3 === 0 ? AMBER : PALE)).flatMap((c) => [c.r, c.g, c.b]),
+      0.15,
+      0.95,
+    );
+    const signalPos = signalGeo.getAttribute("position") as THREE.BufferAttribute;
 
     const lineGeo = new THREE.BufferGeometry();
     lineGeo.setAttribute("position", new THREE.Float32BufferAttribute(linePos, 3));
-    lineGeo.setAttribute("color", new THREE.Float32BufferAttribute(lineCol, 3));
+    lineGeo.setAttribute("color", new THREE.Float32BufferAttribute([...lineBase], 3));
     const lineMat = new THREE.LineBasicMaterial({
       vertexColors: true,
       transparent: true,
@@ -164,28 +182,66 @@ export default function SkillField() {
       depthWrite: false,
     });
     field.add(new THREE.LineSegments(lineGeo, lineMat));
+    disposables.push(lineGeo, lineMat);
+
+    // Brightens the focused group and dims the others.
+    const paint = (focus: number) => {
+      const apply = (geo: THREE.BufferGeometry, base: number[], groups: number[]) => {
+        const attr = geo.getAttribute("color") as THREE.BufferAttribute;
+        groups.forEach((g, v) => {
+          let f = 1;
+          if (focus >= 0) f = g === focus ? 1.35 : g === -1 ? 0.6 : 0.28;
+          attr.setXYZ(v, base[v * 3] * f, base[v * 3 + 1] * f, base[v * 3 + 2] * f);
+        });
+        attr.needsUpdate = true;
+      };
+      apply(nodeGeo, nodeBase, nodeGroup);
+      apply(lineGeo, lineBase, lineGroup);
+    };
 
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let width = 1;
     let height = 1;
+    let wide = true;
     let pointerX = 0;
     let pointerY = 0;
     let tiltX = 0;
     let tiltY = 0;
-    let onScreen = true;
-    let wide = true;
+    let rotY = -1.15; // Starts with the AI group facing the visitor.
+    let focus = -1;
+    let scrolled = 0; // 0 at the top of the page, 1 once the hero has scrolled away
+    let last = 0;
     let raf = 0;
     const tmp = new THREE.Vector3();
 
     const draw = (time: number) => {
+      const dt = Math.min(64, time - last);
+      last = time;
+
+      if (focus >= 0) {
+        const target = (focus / count) * Math.PI * 2 - Math.PI / 2 + 0.35;
+        const diff = Math.atan2(Math.sin(target - rotY), Math.cos(target - rotY));
+        rotY += diff * 0.05;
+      } else {
+        rotY += dt * 0.00007;
+      }
       tiltX += (pointerX - tiltX) * 0.04;
       tiltY += (pointerY - tiltY) * 0.04;
-      // Starts with the AI group facing the visitor.
-      field.rotation.y = -1.15 + time * 0.00007 + tiltX * 0.35;
+      field.rotation.y = rotY + tiltX * 0.35;
       field.rotation.x = 0.16 + tiltY * 0.18;
+
+      for (let k = 0; k < SIGNALS; k++) {
+        const edge = k % count;
+        const t = (time * 0.00012 * (1 + (k % 4) * 0.35) + k * 0.37) % 1;
+        tmp.lerpVectors(centers[edge], centers[(edge + 1) % count], t);
+        signalPos.setXYZ(k, tmp.x, tmp.y, tmp.z);
+      }
+      signalPos.needsUpdate = true;
+
       field.updateMatrixWorld();
       renderer.render(scene, camera);
 
+      const labelFade = 1 - clamp01(scrolled * 1.6);
       centers.forEach((c, i) => {
         const el = labelRefs.current[i];
         if (!el) return;
@@ -196,15 +252,21 @@ export default function SkillField() {
         const y = ((1 - tmp.y) / 2) * height;
         el.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
         // On wide screens the name sits on the left, so labels fade out before they reach it.
-        const clear = wide ? Math.min(1, Math.max(0, (x / width - 0.52) / 0.1)) : 1;
-        const near = Math.min(1, Math.max(0, (depth + 3.2) / 6.4));
-        el.style.opacity = String((0.2 + 0.8 * near) * clear);
+        const clear = wide ? clamp01((x / width - 0.52) / 0.1) : 1;
+        const near = clamp01((depth + 3.2) / 6.4);
+        el.style.opacity = String((0.2 + 0.8 * near) * clear * labelFade);
       });
     };
 
     const loop = (time: number) => {
       raf = requestAnimationFrame(loop);
-      if (onScreen) draw(time);
+      draw(time);
+    };
+
+    const onScroll = () => {
+      scrolled = clamp01(window.scrollY / Math.max(1, window.innerHeight * 0.9));
+      wrap.style.opacity = String(1 - 0.6 * scrolled);
+      if (reduce) draw(last);
     };
 
     const resize = () => {
@@ -217,7 +279,7 @@ export default function SkillField() {
       wide = camera.aspect > 1.25;
       field.position.set(wide ? 2.1 : 0, wide ? 0.2 : 1.6, 0);
       field.scale.setScalar(wide ? 0.88 : Math.min(0.62, camera.aspect * 0.85));
-      if (reduce) draw(0);
+      if (reduce) draw(last);
     };
 
     const onPointer = (e: PointerEvent) => {
@@ -225,13 +287,19 @@ export default function SkillField() {
       pointerY = (e.clientY / window.innerHeight) * 2 - 1;
     };
 
+    const onFocus = (e: Event) => {
+      const id = (e as CustomEvent<string | null>).detail;
+      focus = id ? skillGroups.findIndex((g) => g.id === id) : -1;
+      paint(focus);
+      if (reduce) draw(last);
+    };
+
     const sizeWatcher = new ResizeObserver(resize);
     sizeWatcher.observe(wrap);
-    const viewWatcher = new IntersectionObserver(([entry]) => {
-      onScreen = entry.isIntersecting;
-    });
-    viewWatcher.observe(wrap);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("skill-focus", onFocus);
     resize();
+    onScroll();
 
     if (!reduce) {
       window.addEventListener("pointermove", onPointer, { passive: true });
@@ -241,21 +309,20 @@ export default function SkillField() {
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("pointermove", onPointer);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("skill-focus", onFocus);
       sizeWatcher.disconnect();
-      viewWatcher.disconnect();
-      [nodeObj, dustObj].forEach(({ geo, mat }) => {
-        geo.dispose();
-        mat.dispose();
-      });
-      lineGeo.dispose();
-      lineMat.dispose();
-      sprite.dispose();
+      disposables.forEach((d) => d.dispose());
       renderer.dispose();
     };
   }, []);
 
   return (
-    <div ref={wrapRef} aria-hidden="true" className="absolute inset-0 overflow-hidden">
+    <div
+      ref={wrapRef}
+      aria-hidden="true"
+      className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+    >
       <canvas ref={canvasRef} className="block h-full w-full" />
       {skillGroups.map((group, i) => (
         <span
@@ -263,7 +330,7 @@ export default function SkillField() {
           ref={(el) => {
             labelRefs.current[i] = el;
           }}
-          className={`pointer-events-none absolute left-0 top-0 hidden whitespace-nowrap font-display text-sm font-medium opacity-0 md:block ${
+          className={`absolute left-0 top-0 hidden whitespace-nowrap font-display text-sm font-medium opacity-0 md:block ${
             group.id === "ai" ? "text-amber" : "text-ink"
           }`}
         >
