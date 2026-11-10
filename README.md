@@ -32,7 +32,8 @@ reports:     [Development team lead, DevOps manager, QA team lead]
 experience:  15+ years in talent & assessment tech
 focus:       [technology leadership, full stack solutions, AI, cloud, DevOps, cybersecurity]
 clouds:      [AWS, Azure, Google Cloud]
-industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]```
+industries:  [BFSI, Energy, Manufacturing, Global Consumer Brands]
+```
 
 ---
 
