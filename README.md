@@ -78,6 +78,7 @@ writing:     AI and talent, on LinkedIn
 **Machine learning**
 
 <p>
+  <img src="https://img.shields.io/badge/Custom--Built%20Models-7B3FA0?style=flat-square" alt="Custom-built models" />
   <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" alt="PyTorch" />
   <img src="https://img.shields.io/badge/Transformers-FFD21E?style=flat-square&logo=huggingface&logoColor=black" alt="Hugging Face Transformers" />
   <img src="https://img.shields.io/badge/scikit--learn-F7931E?style=flat-square&logo=scikitlearn&logoColor=white" alt="scikit-learn" />
@@ -93,6 +94,8 @@ writing:     AI and talent, on LinkedIn
   <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
   <img src="https://img.shields.io/badge/Data%20Pipelines-017CEE?style=flat-square&logo=apacheairflow&logoColor=white" alt="Data Pipelines" />
+  <img src="https://img.shields.io/badge/Custom%20Java%20Libraries-B07219?style=flat-square" alt="Custom Java libraries" />
+  <img src="https://img.shields.io/badge/Custom%20Python%20Libraries-306998?style=flat-square" alt="Custom Python libraries" />
 </p>
 
 **Frontend**
@@ -102,12 +105,15 @@ writing:     AI and talent, on LinkedIn
   <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" alt="Next.js" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" alt="TypeScript" />
+  <img src="https://img.shields.io/badge/Custom%20npm%20Libraries-CB3837?style=flat-square&logo=npm&logoColor=white" alt="Custom npm libraries" />
 </p>
 
 **AWS and DevOps**
 
 <p>
   <img src="https://img.shields.io/badge/AWS-232F3E?style=flat-square&logo=amazonwebservices&logoColor=white" alt="AWS" />
+  <img src="https://img.shields.io/badge/CloudFront-8C4FFF?style=flat-square" alt="AWS CloudFront" />
+  <img src="https://img.shields.io/badge/Bedrock-01A88D?style=flat-square" alt="AWS Bedrock" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" alt="Docker" />
   <img src="https://img.shields.io/badge/Jenkins-D24939?style=flat-square&logo=jenkins&logoColor=white" alt="Jenkins" />
   <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" alt="Git" />
