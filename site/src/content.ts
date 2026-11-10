@@ -3,14 +3,15 @@
 export const profile = {
   name: "Ranjan Kumar Patel",
   intro:
-    "I head technology at Think Talent. I build full stack solutions, from the frontend and backend to the AI, cloud, DevOps and security behind them.",
+    "I am VP, Technology at Think Talent. I lead the development, DevOps and QA teams, and I still build full stack solutions myself.",
   about: [
-    "I have been building technology for leadership and talent assessment for more than 15 years. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.",
-    "I still like to stay hands-on. I design the system, write code where it is needed, set up the pipelines and review security before anything goes live. My team handles Spring Boot backends, AWS infrastructure, AI pipelines, test automation and platform security, and I work across all of it.",
+    "I have been building technology for leadership and talent assessment for more than 15 years. Today I run technology at Think Talent as VP. The development team lead, the DevOps manager and the QA team lead report to me.",
+    "I decide the architecture, set the direction for the teams and own what goes to production. I also stay hands-on. I build full stack solutions: the frontend, the backend, the data and the infrastructure they run on. In the last few years AI has become a big part of that work, and today it is at the centre of the products we build.",
     "I am not looking for a job. I made this page so that anyone who looks me up can see what I know and what I am working on.",
   ],
   facts: [
     { label: "Current role", value: "VP, Technology at Think Talent" },
+    { label: "Teams that report to me", value: "Development, DevOps, QA" },
     { label: "Experience", value: "15+ years" },
     {
       label: "Industries I have worked with",
@@ -23,6 +24,25 @@ export const profile = {
     company: "http://thinktalent.co",
   },
 };
+
+export const leading = [
+  {
+    title: "Development",
+    text: "The development team lead reports to me. I set the architecture and review the design decisions that matter.",
+  },
+  {
+    title: "DevOps and cloud",
+    text: "The DevOps manager reports to me. I have dealt with all kinds of AWS scenarios over the years, so I can guide the team from my own experience.",
+  },
+  {
+    title: "Quality",
+    text: "The QA team lead reports to me. I push for automation so that a release does not depend on manual testing.",
+  },
+  {
+    title: "Security",
+    text: "Platform security is my responsibility as well. Nothing goes live without a review.",
+  },
+];
 
 export type SkillGroup = {
   id: string;
@@ -81,13 +101,13 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "aws",
     name: "AWS",
-    note: "Our platforms run on AWS. I have set up and managed most of it myself.",
+    note: "Our platforms run on AWS. I have dealt with all kinds of AWS scenarios over the years.",
     items: ["EC2", "S3", "RDS", "Lambda", "IAM", "VPC", "CloudWatch"],
   },
   {
     id: "devops",
     name: "DevOps",
-    note: "I like releases to be boring. Automate it once and stop worrying about it.",
+    note: "My DevOps manager runs this day to day. I like releases to be boring. Automate it once and stop worrying about it.",
     items: [
       "Docker",
       "Jenkins CI/CD",
@@ -111,7 +131,7 @@ export const skillGroups: SkillGroup[] = [
   {
     id: "testing",
     name: "Test automation",
-    note: "If a test can be automated, I would rather not do it by hand.",
+    note: "My QA lead runs the team. If a test can be automated, we would rather not do it by hand.",
     items: ["Playwright", "QA automation"],
   },
 ];

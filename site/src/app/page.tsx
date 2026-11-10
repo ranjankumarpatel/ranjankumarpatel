@@ -1,9 +1,10 @@
 import Hero from "@/components/Hero";
 import Skills from "@/components/Skills";
-import { building, profile, writing } from "@/content";
+import { building, leading, profile, writing } from "@/content";
 
 const nav = [
   { href: "#about", label: "About" },
+  { href: "#leading", label: "What I lead" },
   { href: "#skills", label: "Skills" },
   { href: "#building", label: "What I am building" },
   { href: "#contact", label: "Contact" },
@@ -19,7 +20,7 @@ export default function Home() {
         <a href="#top" className="font-display text-lg font-semibold">
           Ranjan
         </a>
-        <ul className="hidden gap-8 text-[0.95rem] text-ink/80 sm:flex">
+        <ul className="hidden gap-8 text-[0.95rem] text-ink/80 md:flex">
           {nav.map((n) => (
             <li key={n.href}>
               <a href={n.href} className="transition-colors hover:text-teal">
@@ -63,6 +64,31 @@ export default function Home() {
               </div>
             ))}
           </dl>
+        </section>
+
+        <section
+          id="leading"
+          aria-labelledby="leading-title"
+          className="pb-24 md:pb-32"
+        >
+          <h2
+            id="leading-title"
+            className="font-display text-4xl font-semibold tracking-tight md:text-5xl"
+          >
+            What I lead
+          </h2>
+          <div className="mt-12 grid gap-x-12 gap-y-10 sm:grid-cols-2">
+            {leading.map((l) => (
+              <article key={l.title} className="border-l-2 border-teal pl-6">
+                <h3 className="font-display text-2xl font-semibold leading-tight">
+                  {l.title}
+                </h3>
+                <p className="mt-3 max-w-[46ch] leading-relaxed text-mute">
+                  {l.text}
+                </p>
+              </article>
+            ))}
+          </div>
         </section>
 
         <section id="skills" aria-labelledby="skills-title" className="py-16">

@@ -15,7 +15,7 @@ const hanken = Hanken_Grotesk({
 export const metadata: Metadata = {
   title: "Ranjan Kumar Patel",
   description:
-    "I head technology at Think Talent. I build full stack solutions across frontend, backend, AI, machine learning, AWS, DevOps and cybersecurity.",
+    "VP, Technology at Think Talent. I lead the development, DevOps and QA teams and build full stack solutions across frontend, backend, AI, AWS and cybersecurity.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
