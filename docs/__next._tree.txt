@@ -1,5 +1,5 @@
-:HL["/ranjankumarpatel/_next/static/chunks/27i_51piucbpc.css","style"]
+:HL["/ranjankumarpatel/_next/static/chunks/1y6vc77q5za8s.css","style"]
 :HL["/ranjankumarpatel/_next/static/media/8056169c9d560660-s.p.41rroleoq1br7.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 :HL["/ranjankumarpatel/_next/static/media/b8dfa3d21eb22018-s.p.3lxpqujs87tck.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
 1:[["children",{"s":"__PAGE__","h":160}]]
-0:{"b":"rcaC4s8P5vBw9fiZm2W4l","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"LT6-ddat9nBJLERgRitlp","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
